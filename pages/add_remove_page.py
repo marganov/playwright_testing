@@ -5,13 +5,9 @@ class addRemovePage(BasePage):
     
     add_button = "button[onclick='addElement()']"
     delete_button = "button[onclic='deleteElement()']"
-    
+    url = add_remove_url
     def __init__(self, page):
         super().__init__(page)
-        self.url = add_remove_url
-            
-    def open(self):
-        self.page.goto(self.url)
     
     def click_add_button(self):
         self.page.locator(self.add_button).click()

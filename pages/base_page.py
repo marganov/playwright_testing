@@ -3,10 +3,10 @@ from playwright.sync_api import Page
 class BasePage:
     def __init__(self, page: Page):
         self.page = page
+    
+    def open(self):
+        self.page.goto(self.url)
 
-    def goto(self, url: str):
-        """Открывает указанную страницу."""
-        self.page.goto(url)
 
     def wait_for_element(self, locator: str):
         """Ожидает появления элемента на странице."""

@@ -7,7 +7,7 @@ from links.links import MAIN_URL
 @pytest.mark.smoke
 def test_open_page(page):
     main_page = MainPage(page)
-    main_page.open_main_page()
+    main_page.open()
     assert main_page.get_title() == "The Internet"
 
 @pytest.mark.api
@@ -17,10 +17,9 @@ def test_page_availability():
     assert response.status_code == 200
 
 @pytest.mark.smoke
-@pytest.mark.api
 def test_github_link(page):
     main_page = MainPage(page)
-    main_page.open_main_page()
+    main_page.open()
 
     # Проверка видимости ссылки
     assert main_page.is_github_link_visible(), "GitHub link could not be located"

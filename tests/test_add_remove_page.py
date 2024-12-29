@@ -7,7 +7,8 @@ from links.links import add_remove_url
 @pytest.mark.smoke
 @pytest.mark.functional
 def test_massive_add_delete(page):
-    page.goto(add_remove_url)
+    add_remove_page = addRemovePage(page)
+    add_remove_page.open()
     
     # Добавляем 100 кнопок
     for _ in range(100):
@@ -27,7 +28,8 @@ def test_massive_add_delete(page):
 @pytest.mark.smoke
 @pytest.mark.UI
 def test_add_element_button(page):
-    page.goto(add_remove_url)
+    add_remove_page = addRemovePage(page)
+    add_remove_page.open()
     
     # Нажимаем на кнопку "Add Element" 5 раз
     for _ in range(5):
